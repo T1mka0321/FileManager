@@ -1,24 +1,33 @@
 import os
+import time
 
 # Start code
 
-print(os.getcwd())  # Получаем текущию директорию
-road_to = input()  # Получаем от пользователя путь для смены директории
-save_road_to = (os.chdir(road_to))  # Храним в переменной путь для смены директории
-print(os.listdir(save_road_to))  # Выводим список файлов в директории
-
-print("1 чтобы создать директорию \n 2 если нехотите создавать директорию \n 3 для удаления(если директория пустая)")
-answer = int(input())
-
-if answer == 1:
-    print("Введите название директории:")
-    name_for_directory = str(input())
-    os.mkdir(name_for_directory)
-elif answer == 2:
-    print("Завершение работы.")
-    exit()
-else:
-    print('Введите название директории: ')
-    name_for_delete_directory = str(input())
-    os.rmdir(name_for_delete_directory)
-    print(os.listdir(save_road_to))
+print(f'Вы находитесь в этой директории: {os.getcwd()}')
+print('Хотите перейти в другую директорию?')
+first_answer = str(input())
+if first_answer == 'Да':
+    print('Введите путь: ')
+    road_directory = str(input())
+    print('Переходим в директорию...')
+    time.sleep(1)
+    print('Готово. Получаем содержимое директории')
+    time.sleep(1)
+    print(os.listdir(road_directory))
+    print('Что вы хотите сделать дальше?')
+    time.sleep(1)
+    print('Создать Директорию? Удалить?')
+    second_answer = str(input())
+    if second_answer == 'Создать':
+        print('Название директории: ')
+        four_answer =str(input())
+        os.mkdir(four_answer)
+        print('Создаём...')
+        print('Готово!')
+        time.sleep(1)
+        print(os.listdir(road_directory))
+    else:
+        print(os.getcwd())
+        print('Введите полный путь для удаления')
+        delete_answer = str(input())
+        os.removedirs(delete_answer)
