@@ -31,6 +31,7 @@ if first_answer == 'Да':  # Делаем проверку ответа есл�
         print('Готово!')
         time.sleep(1)
         print(os.listdir(road_directory))
-
-# Пока что всё
-print('Good bye!')
+    else:
+        print('Введите путь ддля директории которую хотите удалить:')
+        delete_answer = str(input())
+        os.rmdir(delete_answer)
